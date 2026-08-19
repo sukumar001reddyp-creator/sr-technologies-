@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+{% block title %}SR Technologies | Enterprise Software Engineering{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .hero { padding: 90px 0 70px 0; }
+        .hero-kicker {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--ink-faint);
+            letter-spacing: 0.14em;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+            line-height: 1.12;
+            max-width: 680px;
+            margin-bottom: 24px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--blue);
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin-bottom: 36px;
+        }
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 30px;
+            height: 100%;
+            transition: all 0.25s ease;
+        }
+        .service-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(16, 25, 43, 0.06);
+        }
+        .service-num {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--ink-faint);
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        .product-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 36px;
+            height: 100%;
+            position: relative;
+        }
+        .tech-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="hero-kicker mono">SR TECHNOLOGIES — ENTERPRISE SOFTWARE</div>
+                <h1>Building Smart Digital Solutions <em>for Modern Businesses.</em></h1>
+                <p class="hero-sub">We specialize in modern websites, custom web applications, mobile applications, CRM solutions, client portals, UI/UX design, API integrations, and software maintenance.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('contact') }}" class="btn-signal">Start a project <span class="arrow mono">→</span></a>
+                    <a href="{{ url_for('services') }}" class="btn-outline-ink">Explore services</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card-spec reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">SPEC. 01 — ARCHITECTURE</div>
+                    <h4 class="mb-3" style="font-size: 1.15rem;">Enterprise-Grade Delivery</h4>
+                    <p class="small mb-4">Every system is built to precise specifications using Python, Flask, PostgreSQL, and cross-platform Flutter frameworks.</p>
+                    <div class="tech-badge-container">
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Flask</span>
+                        <span class="tag-pill">PostgreSQL</span>
+                        <span class="tag-pill">Flutter</span>
+                        <span class="tag-pill">Graph API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ COMPANY OVERVIEW ============ -->
+<section class="section-border-top" style="background: var(--paper-deep);">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="eyebrow">Company Overview</div>
+                <h2 class="section-title" style="font-size: clamp(1.7rem, 2.5vw, 2.2rem);">Empowering Businesses Through Reliable Software</h2>
+                <p class="mb-4">SR Technologies is a software development company focused on delivering high-quality digital solutions for businesses. Our goal is to help businesses improve efficiency through secure, reliable, and user-friendly software.</p>
+                <div class="d-flex gap-4 mono text-xs" style="color: var(--ink);">
+                    <div><i class="fas fa-check text-success me-1"></i> SECURE &amp; SCALABLE</div>
+                    <div><i class="fas fa-check text-success me-1"></i> TIMELY DELIVERY</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card-spec reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">CORE FOCUS</div>
+                    <h3 class="h5 mb-3">Engineered for Efficiency</h3>
+                    <p class="small text-muted mb-0">We build robust backend infrastructures, automated workflows, and high-performance client portals designed to scale seamlessly with enterprise growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ STATISTICS SECTION ============ -->
+<section class="section-border-top">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3"><div class="p-3"><h3 class="h2 fw-bold text-blue">100+</h3><p class="small text-muted mb-0">Projects Delivered</p></div></div>
+            <div class="col-6 col-md-3"><div class="p-3"><h3 class="h2 fw-bold text-blue">98%</h3><p class="small text-muted mb-0">Client Satisfaction</p></div></div>
+            <div class="col-6 col-md-3"><div class="p-3"><h3 class="h2 fw-bold text-blue">24 Hrs</h3><p class="small text-muted mb-0">Proposal Delivery</p></div></div>
+            <div class="col-6 col-md-3"><div class="p-3"><h3 class="h2 fw-bold text-blue">5+</h3><p class="small text-muted mb-0">Years Experience</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ AI REQUIREMENT ANALYSIS ("Describe Your Business") ============ -->
+<section id="ai-planner-section" class="section-border-top" style="background: var(--paper-deep);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="eyebrow justify-content-center">AI Requirement Analysis</div>
+                <h2 class="section-title">Describe Your Business</h2>
+                <p class="mb-4 text-muted">Our AI performs an initial requirement analysis. Every proposal is reviewed and finalized by our software architects.</p>
+                
+                <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mb-4">
+                    <input type="text" id="business-input" class="form-control" placeholder='e.g., I own a dental clinic and need appointment booking.' style="max-width: 450px;">
+                    <button id="generate-proposal-btn" class="btn-signal" type="button">Describe Your Business</button>
+                </div>
+
+                <!-- Hidden Proposal Card -->
+                <div id="proposal-card" class="card-spec reg-frame text-start mt-4 p-4" style="display: none;">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">AI BLUEPRINT RESULT</div>
+                    <h5 class="mb-3">Preliminary Requirement Analysis</h5>
+                    <div class="row g-3 small">
+                        <div class="col-md-6"><strong>Business Type:</strong> <span id="prop-industry" class="text-muted">-</span></div>
+                        <div class="col-md-6"><strong>Estimated Range:</strong> <span id="prop-price" class="text-success fw-bold">-</span></div>
+                        <div class="col-12"><strong>Recommended Solution:</strong> <span id="prop-type" class="text-muted">-</span></div>
+                        <div class="col-12"><strong>Suggested Modules:</strong> <span id="prop-features" class="text-muted">-</span></div>
+                    </div>
+                    <div class="mt-4 pt-3 border-top text-end">
+                        <a href="{{ url_for('contact') }}" class="btn-signal btn-sm">Talk to Our Experts →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SERVICES (THE 8 REQUIRED) ============ -->
+<section class="section-border-top">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="eyebrow">Capabilities</div>
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-sub">Comprehensive software engineering disciplines tailored to business automation and digital transformation.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">01 // DEV</div>
+                    <h4 class="h6 fw-bold mb-2">Website Development</h4>
+                    <p class="small text-muted mb-0">Corporate websites, business portals, landing pages, and fully responsive web designs.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">02 // WEB APP</div>
+                    <h4 class="h6 fw-bold mb-2">Custom Web Applications</h4>
+                    <p class="small text-muted mb-0">Admin dashboards, business management systems, and automated enterprise workflows.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">03 // MOBILE</div>
+                    <h4 class="h6 fw-bold mb-2">Mobile App Development</h4>
+                    <p class="small text-muted mb-0">Native Android and iOS applications, plus cross-platform solutions built via Flutter.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">04 // CRM</div>
+                    <h4 class="h6 fw-bold mb-2">CRM Development</h4>
+                    <p class="small text-muted mb-0">Specialized Freight CRMs, Sales CRMs, and customized lead management architectures.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">05 // PORTAL</div>
+                    <h4 class="h6 fw-bold mb-2">Client Portal Development</h4>
+                    <p class="small text-muted mb-0">Secure customer, employee, and vendor self-service portals with live tracking.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">06 // UI/UX</div>
+                    <h4 class="h6 fw-bold mb-2">UI/UX Design</h4>
+                    <p class="small text-muted mb-0">Precise interface designs, wireframes, prototypes, and user experience layouts.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">07 // API</div>
+                    <h4 class="h6 fw-bold mb-2">API Integration</h4>
+                    <p class="small text-muted mb-0">Microsoft 365, Graph API, WhatsApp Business API, Google Maps, and secure REST hooks.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="service-num">08 // SUPPORT</div>
+                    <h4 class="h6 fw-bold mb-2">Software Maintenance</h4>
+                    <p class="small text-muted mb-0">Continuous bug fixes, performance optimization, security updates, and technical support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PRODUCTS (THE 3 REQUIRED) ============ -->
+<section class="section-border-top" style="background: var(--paper-deep);">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="eyebrow">Solutions</div>
+                <h2 class="section-title">Flagship Products</h2>
+                <p class="section-sub">Production-ready software platforms engineered for rapid business deployment.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="product-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">PROD. 01</div>
+                    <h3 class="h5 mb-3">Freight CRM</h3>
+                    <p class="small text-muted mb-4">Complete freight forwarding and logistics management solution with client management, enquiry handling, quotations, and shipment tracking.</p>
+                    <a href="{{ url_for('products') }}" class="btn-outline-ink btn-sm w-100 justify-content-center">View details</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">PROD. 02</div>
+                    <h3 class="h5 mb-3">Client Portal</h3>
+                    <p class="small text-muted mb-4">A secure customer portal where clients can view shipment details, quotations, invoices, documents, and real-time operational progress.</p>
+                    <a href="{{ url_for('products') }}" class="btn-outline-ink btn-sm w-100 justify-content-center">View details</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">PROD. 03</div>
+                    <h3 class="h5 mb-3">Custom Business Software</h3>
+                    <p class="small text-muted mb-4">Tailor-made software solutions developed precisely according to individual enterprise specifications and internal processing rules.</p>
+                    <a href="{{ url_for('products') }}" class="btn-outline-ink btn-sm w-100 justify-content-center">View details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ DEVELOPMENT PROCESS ============ -->
+<section class="section-border-top">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="eyebrow justify-content-center">Lifecycle</div>
+            <h2 class="section-title">Development Process</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 01</span><h5 class="h6 fw-bold">Free Consultation</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 02</span><h5 class="h6 fw-bold">Requirement Analysis</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 03</span><h5 class="h6 fw-bold">Project Proposal</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 04</span><h5 class="h6 fw-bold">UI/UX Design</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 05</span><h5 class="h6 fw-bold">Development</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 06</span><h5 class="h6 fw-bold">Testing & QA</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 07</span><h5 class="h6 fw-bold">Deployment</h5></div></div>
+            <div class="col-md-3"><div class="service-card p-3"><span class="service-num">STEP 08</span><h5 class="h6 fw-bold">Support & Maintenance</h5></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="section-border-top" style="background: var(--paper-deep);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="eyebrow justify-content-center">Advantage</div>
+            <h2 class="section-title">Why Choose SR Technologies</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Dedicated Project Manager</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> NDA Available</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Source Code Ownership</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Weekly Progress Reports</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Agile Development</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Enterprise Security</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Post Launch Support</div></div>
+            <div class="col-md-3"><div class="p-3 border rounded bg-white"><i class="fas fa-check text-blue me-2"></i> Long-Term Maintenance</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TECHNOLOGIES SECTION ============ -->
+<section class="section-border-top">
+    <div class="container text-center">
+        <div class="eyebrow justify-content-center">Tech Stack</div>
+        <h2 class="section-title mb-4">Technologies We Use</h2>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Flask</span>
+            <span class="tag-pill">PostgreSQL</span>
+            <span class="tag-pill">Tailwind CSS</span>
+            <span class="tag-pill">JavaScript</span>
+            <span class="tag-pill">HTML5</span>
+            <span class="tag-pill">Docker</span>
+            <span class="tag-pill">Git</span>
+            <span class="tag-pill">REST APIs</span>
+            <span class="tag-pill">OpenAI API</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section class="section-border-top" style="background: var(--paper-deep);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="eyebrow justify-content-center">Support & Info</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item mb-2 border rounded">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Who owns the source code?</button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body small text-muted">You retain 100% full intellectual property ownership and source code rights upon project completion.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-2 border rounded">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Do you sign an NDA?</button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body small text-muted">Yes, we gladly sign strict non-disclosure agreements prior to discussing your project details.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-2 border rounded">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">Do you provide maintenance?</button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body small text-muted">Yes, we offer long-term maintenance plans covering security updates, server monitoring, and bug fixes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PORTFOLIO CALLOUT ============ -->
+<section class="section-border-top">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="eyebrow justify-content-center">Track record</div>
+                <h2 class="section-title mx-auto">Explore Our Projects</h2>
+                <p class="section-sub mx-auto mb-4">Take a look at our case studies highlighting custom applications, logistics management systems, and multi-tenant architectures.</p>
+                <a href="{{ url_for('portfolio') }}" class="btn-outline-ink">View complete portfolio <span class="arrow mono">→</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section style="padding-top: 0; padding-bottom: 96px;">
+    <div class="container">
+        <div class="cta-band">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="eyebrow" style="color: var(--signal);">Initiate contact</div>
+                    <h2 class="text-grey">Ready to build your software solution?</h2>
+                    <p>Connect with our engineering team. We will review your specifications and reply within one business day.</p>
+                </div>
+                <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+                    <a href="{{ url_for('contact') }}" class="btn-signal">Contact us <span class="arrow mono">→</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const generateBtn = document.getElementById('generate-proposal-btn');
+        const businessInput = document.getElementById('business-input');
+        const proposalCard = document.getElementById('proposal-card');
+        
+        if(generateBtn) {
+            generateBtn.addEventListener('click', function() {
+                const val = businessInput.value.trim();
+                
+                if(!val) {
+                    alert("దయచేసి మీ బిజినెస్ వివరాలు ఎంటర్ చేయండి!");
+                    businessInput.focus();
+                    return;
+                }
+
+                generateBtn.innerText = "Analyzing...";
+                generateBtn.disabled = true;
+
+                setTimeout(() => {
+                    const textLower = val.toLowerCase();
+                    let estPrice = "₹30,000 - ₹70,000";
+                    let solType = "Custom Business Web Application";
+                    let modules = "Responsive UI, Database, Contact System, Admin Dashboard";
+
+                    if (textLower.includes('erp') || textLower.includes('manufacturing')) {
+                        estPrice = "₹3 Lakhs - ₹6 Lakhs";
+                        solType = "Enterprise ERP & Operations Management";
+                        modules = "Inventory Tracking, Finance Module, Multi-branch Access";
+                    } else if (textLower.includes('crm') || textLower.includes('sales')) {
+                        estPrice = "₹1.5 Lakhs - ₹3 Lakhs";
+                        solType = "Custom CRM & Sales Pipeline";
+                        modules = "Lead Tracking, Automated Pipelines, Client Management";
+                    } else if (textLower.includes('ecommerce') || textLower.includes('store') || textLower.includes('shop')) {
+                        estPrice = "₹70,000 - ₹1.5 Lakhs";
+                        solType = "Secure E-Commerce Platform";
+                        modules = "Product Catalog, Secure Checkout, Order Management";
+                    } else if (textLower.includes('dental') || textLower.includes('clinic') || textLower.includes('hospital')) {
+                        estPrice = "₹40,000 - ₹90,000";
+                        solType = "Patient Portal & Appointment Booking App";
+                        modules = "Online Booking System, Patient Records, SMS Reminders";
+                    }
+
+                    document.getElementById('prop-industry').innerText = val;
+                    document.getElementById('prop-type').innerText = solType;
+                    document.getElementById('prop-price').innerText = estPrice;
+                    document.getElementById('prop-features').innerText = modules;
+
+                    // కార్డ్ ని ఓపెన్ చేయడం
+                    proposalCard.style.display = 'block';
+                    
+                    generateBtn.innerText = "Analyze Requirements";
+                    generateBtn.disabled = false;
+                    
+                    proposalCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 600);
+            });
+        }
+    });
+</script>
+{% endblock %}

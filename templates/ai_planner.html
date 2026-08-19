@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}SR Technologies | AI Business Planner & Requirement Analysis{% endblock %}
+
+{% block content %}
+<section class="py-5" style="min-height: 80vh; display: flex; align-items: center;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="eyebrow justify-content-center">Signature Feature</div>
+                <h1 class="section-title">Describe Your Business</h1>
+                <p class="mb-4 text-muted">Tell us about your business in a few words. Our AI performs an initial requirement analysis, suggesting the right architecture, modules, and estimated cost. Every proposal is reviewed by our software architects.</p>
+                
+                <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mb-4">
+                    <input type="text" id="business-input" class="form-control form-control-lg" placeholder='e.g., I own a freight logistics company and need shipment tracking.' style="max-width: 500px;">
+                    <button id="generate-proposal-btn" class="btn-signal btn-lg" type="button">Analyze Requirements</button>
+                </div>
+
+                <!-- Hidden Proposal Card -->
+                <div id="proposal-card" class="card-spec reg-frame text-start mt-4 p-4 shadow-sm" style="display: none;">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">AI BLUEPRINT RESULT — PRELIMINARY ANALYSIS</div>
+                    <h4 class="mb-3">Project Blueprint & Scope</h4>
+                    <div class="row g-3 small">
+                        <div class="col-md-6"><strong>Business Context:</strong> <br><span id="prop-industry" class="text-muted">-</span></div>
+                        <div class="col-md-6"><strong>Estimated Budget:</strong> <br><span id="prop-price" class="text-success fw-bold fs-6">-</span></div>
+                        <div class="col-12"><strong>Recommended Architecture:</strong> <br><span id="prop-type" class="text-muted">-</span></div>
+                        <div class="col-12"><strong>Suggested Core Modules:</strong> <br><span id="prop-features" class="text-muted">-</span></div>
+                        <div class="col-12"><strong>Tech Stack:</strong> <br><span id="prop-tech" class="text-muted">Python Flask, PostgreSQL, Tailwind CSS, REST APIs</span></div>
+                    </div>
+                    <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <span class="small text-muted mono">Ready to take this to production?</span>
+                        <a href="{{ url_for('contact') }}" class="btn-signal btn-sm">Talk to Our Software Architects →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const generateBtn = document.getElementById('generate-proposal-btn');
+        const businessInput = document.getElementById('business-input');
+        const proposalCard = document.getElementById('proposal-card');
+        
+        if(generateBtn) {
+            generateBtn.addEventListener('click', async function() {
+                const val = businessInput.value.trim();
+                
+                if(!val) {
+                    businessInput.focus();
+                    return;
+                }
+
+                generateBtn.innerText = "Analyzing Requirements...";
+                generateBtn.disabled = true;
+
+                try {
+                    const response = await fetch('/ai/generate-proposal', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ description: val })
+                    });
+
+                    const result = await response.json();
+
+                    if(result.success) {
+                        document.getElementById('prop-industry').innerText = result.industry;
+                        document.getElementById('prop-type').innerText = result.solution;
+                        document.getElementById('prop-price').innerText = result.price;
+                        document.getElementById('prop-features').innerText = result.features;
+
+                        proposalCard.style.display = 'block';
+                        proposalCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    // ఇక్కడ ఉన్న alert ని తీసేసాము, కాబట్టి పాప్-అప్ రాదు
+                } finally {
+                    generateBtn.innerText = "Analyze Requirements";
+                    generateBtn.disabled = false;
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

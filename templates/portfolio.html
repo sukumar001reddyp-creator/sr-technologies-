@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}SR Technologies | Portfolio{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="eyebrow">Track Record</div>
+                <h1 class="section-title">Our Project Portfolio</h1>
+                <p class="section-sub">A showcase of production systems and applications delivered to specification.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card-spec reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">SYSTEM 01</div>
+                    <h3 class="h5 mb-2">Freight & Logistics Management CRM</h3>
+                    <p class="small text-muted mb-4">An enterprise-grade CRM built with Flask, PostgreSQL, and Bootstrap 5 featuring Microsoft Outlook & WhatsApp integrations.</p>
+                    <div>
+                        <span class="tag-pill me-1">Python / Flask</span>
+                        <span class="tag-pill">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-spec reg-frame">
+                    <span class="reg-bl"></span><span class="reg-br"></span>
+                    <div class="card-fig mono">SYSTEM 02</div>
+                    <h3 class="h5 mb-2">Cross-Platform Fleet Mobile App</h3>
+                    <p class="small text-muted mb-4">Real-time container tracking mobile application developed for Android and iOS using Flutter and Dart.</p>
+                    <div>
+                        <span class="tag-pill me-1">Flutter</span>
+                        <span class="tag-pill">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
