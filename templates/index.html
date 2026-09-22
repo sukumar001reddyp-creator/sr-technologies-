@@ -3,13 +3,34 @@
 
 {% block extra_css %}
     <style>
-        .hero { padding: 90px 0 70px 0; }
+        :root {
+            --glow-color: rgba(14, 165, 233, 0.15);
+        }
+        .hero { 
+            padding: 90px 0 70px 0; 
+            position: relative;
+            overflow: hidden;
+        }
+        /* Vibrant Modern Gradient Glow Backdrop (Replacing cliché 3D) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
+            z-index: -1;
+            filter: blur(60px);
+            pointer-events: none;
+        }
         .hero-kicker {
             font-family: var(--font-mono);
-            font-size: 0.72rem;
-            color: var(--ink-faint);
+            font-size: 0.75rem;
+            color: var(--blue);
             letter-spacing: 0.14em;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
         .hero h1 {
             font-size: clamp(2.3rem, 4.5vw, 3.6rem);
@@ -19,12 +40,24 @@
         }
         .hero h1 em {
             font-style: normal;
-            color: var(--blue);
+            background: linear-gradient(135deg, var(--blue), #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .hero-sub {
             font-size: 1.05rem;
             max-width: 520px;
-            margin-bottom: 36px;
+            margin-bottom: 30px;
+        }
+        /* Glassmorphism Mockup Card */
+        .glass-mockup {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.08);
+            border-radius: var(--radius);
+            padding: 30px;
+            position: relative;
         }
         .service-card {
             background: var(--surface);
@@ -36,8 +69,8 @@
         }
         .service-card:hover {
             border-color: var(--blue);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(16, 25, 43, 0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(14, 165, 233, 0.08);
         }
         .service-num {
             font-family: var(--font-mono);
@@ -69,8 +102,16 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-7">
-                <div class="hero-kicker mono">SR TECHNOLOGIES — ENTERPRISE SOFTWARE</div>
+                <div class="hero-kicker mono">SR TECHNOLOGIES — ENTERPRISE SOFTWARE &amp; WEB DESIGN</div>
                 <h1>Building Smart Digital Solutions <em>for Modern Businesses.</em></h1>
+                
+                <!-- Price Highlight Pill -->
+                <div class="mb-4">
+                    <span class="d-inline-flex align-items-center gap-2 px-3.5 py-2 rounded-pill shadow-sm" style="background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.3); color: var(--blue); font-weight: 600; font-size: 0.95rem;">
+                        <i class="fas fa-bolt text-warning"></i> Professional Website Design starts from <span class="fw-bold text-dark" style="font-size: 1.1rem; text-decoration: underline; text-decoration-color: var(--blue);">₹5,000</span> only!
+                    </span>
+                </div>
+
                 <p class="hero-sub">We specialize in modern websites, custom web applications, mobile applications, CRM solutions, client portals, UI/UX design, API integrations, and software maintenance.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="{{ url_for('contact') }}" class="btn-signal">Start a project <span class="arrow mono">→</span></a>
@@ -78,11 +119,11 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="card-spec reg-frame">
+                <div class="glass-mockup reg-frame">
                     <span class="reg-bl"></span><span class="reg-br"></span>
-                    <div class="card-fig mono">SPEC. 01 — ARCHITECTURE</div>
+                    <div class="card-fig mono text-blue mb-2">SPEC. 01 — ARCHITECTURE</div>
                     <h4 class="mb-3" style="font-size: 1.15rem;">Enterprise-Grade Delivery</h4>
-                    <p class="small mb-4">Every system is built to precise specifications using Python, Flask, PostgreSQL, and cross-platform Flutter frameworks.</p>
+                    <p class="small text-muted mb-4">Every system is built to precise specifications using Python, Flask, PostgreSQL, and cross-platform Flutter frameworks.</p>
                     <div class="tech-badge-container">
                         <span class="tag-pill">Python</span>
                         <span class="tag-pill">Flask</span>
@@ -103,7 +144,7 @@
             <div class="col-lg-6">
                 <div class="eyebrow">Company Overview</div>
                 <h2 class="section-title" style="font-size: clamp(1.7rem, 2.5vw, 2.2rem);">Empowering Businesses Through Reliable Software</h2>
-                <p class="mb-4">SR Technologies is a software development company focused on delivering high-quality digital solutions for businesses. Our goal is to help businesses improve efficiency through secure, reliable, and user-friendly software.</p>
+                <p class="mb-4">SR Technologies is a software development company focused on delivering high-quality digital solutions for businesses[cite: 1]. Our goal is to help businesses improve efficiency through secure, reliable, and user-friendly software[cite: 1].</p>
                 <div class="d-flex gap-4 mono text-xs" style="color: var(--ink);">
                     <div><i class="fas fa-check text-success me-1"></i> SECURE &amp; SCALABLE</div>
                     <div><i class="fas fa-check text-success me-1"></i> TIMELY DELIVERY</div>
@@ -184,7 +225,10 @@
                     <span class="reg-bl"></span><span class="reg-br"></span>
                     <div class="service-num">01 // DEV</div>
                     <h4 class="h6 fw-bold mb-2">Website Development</h4>
-                    <p class="small text-muted mb-0">Corporate websites, business portals, landing pages, and fully responsive web designs.</p>
+                    <p class="small text-muted mb-3">Corporate websites, business portals, landing pages, and fully responsive web designs.</p>
+                    <div class="pt-2 border-top">
+                        <span class="badge bg-light text-dark fw-bold border" style="font-size: 0.75rem;">Starts @ ₹5,000</span>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -472,7 +516,6 @@
                     document.getElementById('prop-price').innerText = estPrice;
                     document.getElementById('prop-features').innerText = modules;
 
-                    // కార్డ్ ని ఓపెన్ చేయడం
                     proposalCard.style.display = 'block';
                     
                     generateBtn.innerText = "Analyze Requirements";
